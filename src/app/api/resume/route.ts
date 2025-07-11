@@ -3,7 +3,8 @@ import { join } from "path";
 import { promises as fs } from "fs";
 
 export async function GET() {
-  const pdfPath = join(process.cwd(), "src", "app", "api", "resume", "Dev_Chawla.pdf");
+  
+  const pdfPath = join(process.cwd(), "public", "Dev_Chawla.pdf");
   try {
     const pdfBuffer = await fs.readFile(pdfPath);
     return new NextResponse(pdfBuffer, {

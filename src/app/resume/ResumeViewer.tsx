@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/esm/Page/AnnotationLayer.css";
 import "react-pdf/dist/esm/Page/TextLayer.css";
@@ -11,6 +11,23 @@ const dummyPdfUrl = "/api/resume";
 
 export default function ResumeViewer() {
   const [numPages, setNumPages] = useState<number | null>(null);
+  const [pdfWidth, setPdfWidth] = useState(950);
+  const [minHeight, setMinHeight] = useState(900);
+
+  useEffect(() => {
+    function handleResize() {
+      if (window.innerWidth <= 900) {
+        setPdfWidth(350);
+        setMinHeight(455);
+      } else {
+        setPdfWidth(950);
+        setMinHeight(900);
+      }
+    }
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
     setNumPages(numPages);
@@ -18,8 +35,8 @@ export default function ResumeViewer() {
 
   return (
     <div
-      className="flex justify-center overflow-auto border rounded-lg bg-gray-100 dark:bg-gray-800 p-2 min-h-[900px]"
-      style={{ minHeight: 900 }}
+      className="flex justify-center overflow-auto border rounded-lg bg-gray-100 dark:bg-gray-800 p-2"
+      style={{ minHeight }}
     >
       <Document
         file={dummyPdfUrl}
@@ -30,7 +47,7 @@ export default function ResumeViewer() {
           <Page
             key={`page_${index + 1}`}
             pageNumber={index + 1}
-            width={950}
+            width={pdfWidth}
           />
         ))}
       </Document>
