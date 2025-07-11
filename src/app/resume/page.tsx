@@ -9,7 +9,10 @@ const dummyPdfUrl = "/Dev_Chawla.pdf";
 export default function ResumePage() {
   return (
     <section className="py-20 min-h-screen flex flex-col items-center bg-gray-50 dark:bg-dark">
-      <div className="w-full max-w-3xl bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6">
+      <div
+        className="w-full max-w-5xl bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 min-h-[900px]"
+        style={{ minHeight: 900 }}
+      >
         <div className="flex justify-between items-center mb-4">
           <h1 className="text-2xl font-bold">Resume</h1>
           <a
@@ -24,4 +27,4 @@ export default function ResumePage() {
       </div>
     </section>
   );
-} 
+}

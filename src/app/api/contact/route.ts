@@ -9,7 +9,6 @@ interface ContactRequestBody {
 
 export async function POST(request: Request) {
   try {
-    // Initialize Resend with API key check
     const apiKey = process.env.RESEND_API_KEY;
     if (!apiKey) {
       console.error('RESEND_API_KEY is not configured');
@@ -24,7 +23,6 @@ export async function POST(request: Request) {
     const body = await request.json() as ContactRequestBody
     const { name, email, message } = body
 
-    // Basic validation
     if (!name || !email || !message) {
       return NextResponse.json(
         { message: 'All fields are required' },
@@ -32,7 +30,6 @@ export async function POST(request: Request) {
       )
     }
 
-    // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(email)) {
       return NextResponse.json(
@@ -41,7 +38,6 @@ export async function POST(request: Request) {
       )
     }
 
-    // Send email using Resend
     await resend.emails.send({
       from: 'onboarding@resend.dev', 
       to: ['devchawla.04@gmail.com'], 

@@ -21,7 +21,6 @@ export default function About() {
         About Me
       </motion.h1>
       
-      {/* Bio Section */}
       <motion.section 
         className="mb-16"
         {...fadeInUp}
@@ -33,7 +32,6 @@ export default function About() {
         </p>
       </motion.section>
 
-      {/* Skills Section */}
       <motion.section 
         className="mb-16"
         {...fadeIn}
@@ -98,7 +96,6 @@ export default function About() {
         </motion.div>
       </motion.section>
 
-      {/* Experience Section */}
       <motion.section 
         className="mb-16"
         {...fadeIn}
@@ -133,7 +130,6 @@ export default function About() {
         </motion.div>
       </motion.section>
 
-      {/* Education Section */}
       <motion.section
         {...fadeIn}
         transition={{ delay: 0.6 }}

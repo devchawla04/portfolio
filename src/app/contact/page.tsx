@@ -60,7 +60,6 @@ export default function Contact() {
       </motion.h1>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-        {/* Contact Information */}
         <motion.div 
           className="space-y-8"
           {...slideInLeft}
@@ -109,7 +108,6 @@ export default function Contact() {
           </motion.div>
         </motion.div>
         
-        {/* Contact Form */}
         <motion.div 
           className="bg-white dark:bg-dark/50 p-6 rounded-lg shadow-md"
           {...slideInRight}

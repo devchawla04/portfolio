@@ -18,7 +18,7 @@ export default function Navbar() {
     { href: '/about', label: 'About' },
     { href: '/projects', label: 'Projects' },
     { href: '/contact', label: 'Contact' },
-    { href: '/resume', label: 'Resume' }, // Added Resume link
+    { href: '/resume', label: 'Resume' }, 
   ];
 
   return (
@@ -29,7 +29,6 @@ export default function Navbar() {
             Devfolio&trade;
           </Link>
           
-          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
               <Link 
@@ -54,7 +53,6 @@ export default function Navbar() {
             </motion.button>
           </div>
 
-          {/* Mobile Menu Button */}
           <motion.button
             className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
             onClick={toggleMobileMenu}
@@ -69,7 +67,6 @@ export default function Navbar() {
           </motion.button>
         </div>
 
-        {/* Mobile Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
