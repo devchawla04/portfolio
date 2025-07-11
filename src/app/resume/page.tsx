@@ -8,9 +8,9 @@ const dummyPdfUrl = "/Dev_Chawla.pdf";
 
 export default function ResumePage() {
   return (
-    <section className="py-20 min-h-screen flex flex-col items-center bg-gray-50 dark:bg-dark">
+    <section className="py-20 min-h-screen flex flex-col items-center bg-gray-50 dark:bg-gray-900">
       <div
-        className="w-full max-w-5xl bg-white dark:bg-gray-900 rounded-lg shadow-lg p-6 min-h-[900px]"
+        className="w-full max-w-5xl bg-white dark:bg-dark rounded-lg shadow-lg p-6 min-h-[900px]"
         style={{ minHeight: 900 }}
       >
         <div className="flex justify-between items-center mb-4">
