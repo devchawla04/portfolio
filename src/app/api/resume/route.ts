@@ -4,7 +4,7 @@ import { promises as fs } from "fs";
 
 export async function GET() {
   
-  const pdfPath = join(process.cwd(), "public", "Dev_Chawla.pdf");
+  const pdfPath = join(process.cwd(), "public", "Dev_Chawla_Resume.pdf");
   try {
     const pdfBuffer = await fs.readFile(pdfPath);
     return new NextResponse(pdfBuffer, {
@@ -12,7 +12,7 @@ export async function GET() {
       headers: {
         "Content-Type": "application/pdf",
         "Cache-Control": "public, max-age=31536000, immutable",
-        "Content-Disposition": "inline; filename=Dev_Chawla.pdf",
+        "Content-Disposition": "inline; filename=Dev_Chawla_Resume.pdf",
       },
     });
   } catch {

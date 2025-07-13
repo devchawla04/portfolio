@@ -1,12 +1,13 @@
 "use client";
 
+
 import dynamic from "next/dynamic";
+import { useResume } from "../../context/ResumeContext";
 
 const ResumeViewer = dynamic(() => import("./ResumeViewer"), { ssr: false });
 
-const pdfUrl = "/Dev_Chawla.pdf";
-
 export default function ResumePage() {
+  const { pdfUrl } = useResume();
   return (
     <section className="py-20 min-h-screen flex flex-col items-center bg-gray-50 dark:bg-gray-900 mt-[-33px]">
       <div
@@ -23,7 +24,7 @@ export default function ResumePage() {
             Download PDF
           </a>
         </div>
-        <ResumeViewer />
+        <ResumeViewer pdfUrl={pdfUrl} />
       </div>
     </section>
   );

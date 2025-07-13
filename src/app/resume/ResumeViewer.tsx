@@ -7,9 +7,12 @@ import "react-pdf/dist/esm/Page/TextLayer.css";
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-const dummyPdfUrl = "/api/resume";
 
-export default function ResumeViewer() {
+interface ResumeViewerProps {
+  pdfUrl: string; 
+}
+
+export default function ResumeViewer({ pdfUrl }: ResumeViewerProps) {
   const [numPages, setNumPages] = useState<number | null>(null);
   const [pdfWidth, setPdfWidth] = useState(950);
   const [minHeight, setMinHeight] = useState(900);
@@ -39,9 +42,9 @@ export default function ResumeViewer() {
       style={{ minHeight }}
     >
       <Document
-        file={dummyPdfUrl}
+        file={pdfUrl}
         onLoadSuccess={onDocumentLoadSuccess}
-        loading={<div>Loading PDF...</div>}
+        loading={<div/>}
       >
         {Array.from(new Array(numPages), (el, index) => (
           <Page
