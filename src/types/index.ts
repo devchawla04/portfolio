@@ -5,6 +5,8 @@ export interface Project {
   githubLink: string;
   demoLink: string;
   image: string;
+  width: number;
+  height: number;
 }
 
 export interface Blog {
