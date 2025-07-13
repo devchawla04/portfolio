@@ -13,6 +13,7 @@ export default function ResumeViewer() {
   const [numPages, setNumPages] = useState<number | null>(null);
   const [pdfWidth, setPdfWidth] = useState(950);
   const [minHeight, setMinHeight] = useState(900);
+  const [pdfUrl, setPdfUrl] = useState<string | null>(null);
 
   useEffect(() => {
     function handleResize() {
@@ -29,6 +30,20 @@ export default function ResumeViewer() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    let isMounted = true;
+    fetch(dummyPdfUrl)
+      .then((res) => res.blob())
+      .then((blob) => {
+        if (isMounted) {
+          setPdfUrl(URL.createObjectURL(blob));
+        }
+      });
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
     setNumPages(numPages);
   }
@@ -38,19 +53,23 @@ export default function ResumeViewer() {
       className="flex justify-center overflow-auto border rounded-lg bg-gray-100 dark:bg-gray-800 p-2"
       style={{ minHeight }}
     >
-      <Document
-        file={dummyPdfUrl}
-        onLoadSuccess={onDocumentLoadSuccess}
-        loading={<div>Loading PDF...</div>}
-      >
-        {Array.from(new Array(numPages), (el, index) => (
-          <Page
-            key={`page_${index + 1}`}
-            pageNumber={index + 1}
-            width={pdfWidth}
-          />
-        ))}
-      </Document>
+      {pdfUrl ? (
+        <Document
+          file={pdfUrl}
+          onLoadSuccess={onDocumentLoadSuccess}
+          loading={<div />}
+        >
+          {Array.from(new Array(numPages), (el, index) => (
+            <Page
+              key={`page_${index + 1}`}
+              pageNumber={index + 1}
+              width={pdfWidth}
+            />
+          ))}
+        </Document>
+      ) : (
+       <div/>
+      )}
     </div>
   );
 }
