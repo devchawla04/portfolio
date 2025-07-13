@@ -8,9 +8,7 @@ export const projects: Project[] = [
         technologies: ['ReactJS', 'Tailwind CSS'],
         githubLink: 'https://github.com/devchawla04/swiggy-clone-React',
         demoLink: 'https://devchawla-food-ordering-project.netlify.app/',
-        image: '/projects/food-ordering-app.png',
-        width: 1280,
-        height: 720,
+        image: '/projects/food-ordering-app.webp',
       },
       {
         title: 'Netflix Clone App',
@@ -18,9 +16,7 @@ export const projects: Project[] = [
         technologies: ['ReactJS',"reactYoutube", 'Tailwind CSS'],
         githubLink: 'https://github.com/devchawla04/Netflix-clone',
         demoLink: 'https://dev-project-clone-app.netlify.app',
-        image: '/projects/netflix-clone-app.png',
-        width: 1280,
-        height: 720,
+        image: '/projects/netflix-clone-app.webp',
       },
       {
         title: 'Google Clone',
@@ -28,8 +24,6 @@ export const projects: Project[] = [
          technologies: ['ReactJS',"googleSearchAPI", 'Tailwind CSS'],
         githubLink: 'https://github.com/devchawla04/google-clone',
         demoLink: 'https://dev-chawla-google-clone-project.netlify.app/',
-        image: '/projects/google-clone.png',
-        width: 1280,
-        height: 720,
+        image: '/projects/google-clone.webp',
       },
   ];

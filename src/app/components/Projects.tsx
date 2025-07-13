@@ -34,10 +34,9 @@ export default function Projects() {
                 <Image
                   src={project.image}
                   alt={project.title}
+                  fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  width={project.width}
-                  height={project.height}
                   priority
                 />
               </div>
